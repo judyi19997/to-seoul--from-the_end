@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import review.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', review.views.home,name='home'),
+    path('review/<int:review_id>', review.views.detail,name='detail'),
+    path('review/new', review.views.new,name='new'),
+    path('review/create', review.views.create,name='create'),
+    path('review/edit/<int:review_id>', review.views.edit,name='edit'),
+    path('review/update/<int:review_id>', review.views.update,name='update'),
+    path('review/delete/<int:review_id>', review.views.delete,name='delete'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
