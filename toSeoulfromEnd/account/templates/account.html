@@ -7,8 +7,10 @@
 </head>
 <body>
     <form action="" method = "POST">
-        {{formForm.as_p}}
+        {% csrf_token %}
+        {{newForm.as_p}}
+        <input type="submit" value="submit">
     </form>
-    <!-- <b><a href="{%url " ></a></b> --> --아직 home.html완성 안함.
+    
 </body>
 </html>
