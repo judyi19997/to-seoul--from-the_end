@@ -1,0 +1,22 @@
+<h1> Detail Page </h1>
+
+<h3>제목 : {{review.title}}</h3>
+
+<hr>
+
+<p>{{review.pub_date}}</p>
+
+<p>
+    {{review.fest_date.date}}
+    <br>
+    {{review.body}}
+</p>
+
+<br>
+{% if review.image %}
+<img src="{{review.image.url}}">
+{% endif %}
+<br>
+<a href="{%url 'review'%}">메인 홈</a>
+<a href="{%url 'review_edit' review.id%}">수정하기</a>
+<a href="{%url 'review_delete' review.id%}">삭제하기</a>
