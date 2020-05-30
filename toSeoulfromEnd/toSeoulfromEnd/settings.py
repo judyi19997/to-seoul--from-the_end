@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'festival',
     'review',
     'account',
+    'main',
 ]
 
 MIDDLEWARE = [

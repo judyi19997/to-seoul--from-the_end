@@ -6,11 +6,11 @@ from .form import Reviewform
 # Create your views here.
 def review(request):
     reviews = Review.objects.all()
-    return render(request,'home.html',{'reviews':reviews})
+    return render(request,'review.html',{'reviews':reviews})
 
 def review_detail(request,review_id):
     review = get_object_or_404(Review,pk=review_id)
-    return render(request,'detail.html',{'review':review})
+    return render(request,'review_detail.html',{'review':review})
 
 def review_new(request):
     if request.method=='POST':
@@ -22,7 +22,7 @@ def review_new(request):
             return redirect('review')
     else:
         form = Reviewform()
-        return render(request,'new.html',{'form':form})
+        return render(request,'review_new.html',{'form':form})
 
 def review_create(request):
     new_review = Review()
@@ -30,11 +30,11 @@ def review_create(request):
     new_review.pub_date = timezone.datetime.now()
     new_review.body = request.POST['body']
     new_review.save()
-    return redirect('review')
+    return redirect('review_detail',new_review.id)
 
 def review_edit(request,review_id):
     edit_review = get_object_or_404(Review,pk=review_id)
-    return render(request,'edit.html',{'review':edit_review})
+    return render(request,'review_edit.html',{'review':edit_review})
 
 def review_update(request,review_id):
     update_review = get_object_or_404(Review,pk=review_id)
