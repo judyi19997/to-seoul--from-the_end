@@ -4,47 +4,47 @@ from django.utils import timezone
 from .form import Reviewform
 
 # Create your views here.
-def home(request):
+def review(request):
     reviews = Review.objects.all()
     return render(request,'home.html',{'reviews':reviews})
 
-def detail(request,review_id):
+def review_detail(request,review_id):
     review = get_object_or_404(Review,pk=review_id)
     return render(request,'detail.html',{'review':review})
 
-def new(request):
+def review_new(request):
     if request.method=='POST':
         form = Reviewform(request.POST, request.FILES)
         if form.is_valid():
             content = form.save(commit=False)
             content.pub_date=timezone.now()
             content.save()
-            return redirect('home')
+            return redirect('review')
     else:
         form = Reviewform()
         return render(request,'new.html',{'form':form})
 
-def create(request):
+def review_create(request):
     new_review = Review()
     new_review.title = request.POST['title']
     new_review.pub_date = timezone.datetime.now()
     new_review.body = request.POST['body']
     new_review.save()
-    return redirect('home')
+    return redirect('review')
 
-def edit(request,review_id):
+def review_edit(request,review_id):
     edit_review = get_object_or_404(Review,pk=review_id)
     return render(request,'edit.html',{'review':edit_review})
 
-def update(request,review_id):
+def review_update(request,review_id):
     update_review = get_object_or_404(Review,pk=review_id)
     update_review.title = request.POST['title']
     update_review.pub_date = timezone.datetime.now()
     update_review.body = request.POST['body']
     update_review.save()
-    return redirect('detail',update_review.id)
+    return redirect('review_detail',update_review.id)
 
-def delete(request,review_id):
+def review_delete(request,review_id):
     delete_review = get_object_or_404(Review,pk=review_id)
     delete_review.delete()
-    return redirect('home')
+    return redirect('review')

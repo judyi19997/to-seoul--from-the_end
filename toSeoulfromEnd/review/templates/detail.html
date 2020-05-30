@@ -17,6 +17,6 @@
 <img src="{{review.image.url}}">
 {% endif %}
 <br>
-<a href="{%url 'home'%}">메인 홈</a>
-<a href="{%url 'edit' review.id%}">수정하기</a>
-<a href="{%url 'delete' review.id%}">삭제하기</a>
+<a href="{%url 'review'%}">메인 홈</a>
+<a href="{%url 'review_edit' review.id%}">수정하기</a>
+<a href="{%url 'review_delete' review.id%}">삭제하기</a>

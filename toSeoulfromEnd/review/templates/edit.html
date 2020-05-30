@@ -1,6 +1,6 @@
 <h1>글 수정하기</h1>
 
-<form action="{%url 'update' review.id%}" method="POST">
+<form action="{%url 'review_update' review.id%}" method="POST">
     {%csrf_token%}
     제목:<input type="text" value="{{review.title}}" name="title">
     <br>

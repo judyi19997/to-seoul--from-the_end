@@ -21,11 +21,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', review.views.home,name='home'),
-    path('review/<int:review_id>', review.views.detail,name='detail'),
-    path('review/new', review.views.new,name='new'),
-    path('review/create', review.views.create,name='create'),
-    path('review/edit/<int:review_id>', review.views.edit,name='edit'),
-    path('review/update/<int:review_id>', review.views.update,name='update'),
-    path('review/delete/<int:review_id>', review.views.delete,name='delete'),
+    path('', review.views.review,name='review'),
+    path('review/<int:review_id>', review.views.review_detail,name='review_detail'),
+    path('review/new', review.views.review_new,name='review_new'),
+    path('review/create', review.views.review_create,name='review_create'),
+    path('review/edit/<int:review_id>', review.views.review_edit,name='review_edit'),
+    path('review/update/<int:review_id>', review.views.review_update,name='review_update'),
+    path('review/delete/<int:review_id>', review.views.review_delete,name='review_delete'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
