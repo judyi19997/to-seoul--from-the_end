@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>각 축제의 detail 정보 보여주는 페이지</title>
+</head>
+<body>
+    <h3>**detail 보여주는 page</h3>
+
+    <a href="{%url 'festival_home'%}">목록으로 돌아가기</a>
+
+    {% if user.is_staff == True %}
+    <a href="{%url 'delete' detailForm.id %}">해당포스트 삭제</a>
+    {% endif %}
+
+    <p>축제 이름 : {{detailForm.title}}</p>
+    <p>최종 수정 날짜 : {{detailForm.pub_date}}</p>
+    <p>축제 기간 : {{detailForm.period}}</p>
+    <!-- <p>이미지 : {{detailForm.image}}</p> -->
+    <hr>
+    <p>본문 : {{detailForm.body}}</p>
+    <hr>
+    <p>좋아요 : {{detailForm.likes}}</p>
+    <p>링크 : {{detailForm.url}}</p>
+    
+    <!-- 제목(char)
+# - 날짜(date)
+# - 장소(char)
+# - 축제 기간(date)
+# - 본문(text)
+# - 사진(image)
+# - 좋아요()
+# - 작성자(fk)
+# - 학교 축제임?(boolean)
+# - 링크 (urlfield) 찾아보세여 -->
+</body>
+</html>
