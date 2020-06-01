@@ -1,4 +1,14 @@
-<a href="{%url 'review'%}">리뷰보러가기</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link href= "{% static 'css/style.css' %}" rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <a href="{%url 'review'%}">리뷰보러가기</a>
 
 
 {% if user.is_authenticated %}
@@ -12,3 +22,6 @@
 
 
 <h1>메인페이지 입니당</h1>
+    
+</body>
+</html>
