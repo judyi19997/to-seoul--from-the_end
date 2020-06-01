@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>staff writing page</title>
+</head>
+<body>
+    <h5>**staff가 festival관련 글 수정하는 페이지**</h5>
+    <form action="{%url 'update' editForm.id%}" method="POST">
+        {% csrf_token %}
+        
+        <p>제목 : <input type="text" name = "edit_title" value = {{editForm.title}}></p>
+        <p>장소 : <input type="text" name = 'edit_locate' value = {{editForm.locate}}></p>
+        <p>기간 : <input type="text" name = 'edit_period' value = {{editForm.period}}></p>
+        <p>본문 : <textarea name="edit_body" id="" cols="30" rows="10">{{editForm.body}}</textarea></p>
+        <!-- <p>학교 축제인가? : </p> -->
+        <!-- <p>이미지 : </p> -->
+        <!-- <p>링크 : </p> -->
+
+        <input type="submit" value = "저장">
+    </form>
+</body>
+</html>
