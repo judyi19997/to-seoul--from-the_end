@@ -1,5 +1,52 @@
-<a href="{%url 'review'%}">리뷰보러가기</a>
-<a href="{%url 'festival_home'%}">축제 보러가기</a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To Seoul From The End</title>
+    {% load static %}
+    <link href= "{% static 'css/mystyles.css' %}" rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <section class="hero is-info is-fullheight">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              To Seoul From The End
+            </h1>
+            <h2 class="subtitle">
+              서울부터 땅끝까지
+            </h2>
+            <form action="{% url 'festival_home'%}">
+                <div class="select">
+                    <select name = "locate">
+                      <option value = "서울">서울</option>
+                      <option value = "인천">인천</option>
+                      <option value = "경기도">경기</option>
+                      <option value = "강원도">강원</option>
+                      <option value = "대전">대전</option>
+                      <option value = "충청북도">충북</option>
+                      <option value = "충청남도">충남</option>
+                      <option value = "광주">광주</option>
+                      <option value = "전라북도">전북</option>
+                      <option value = "전라남도">전남</option>
+                      <option value = "부산">부산</option>
+                      <option value = "대구">대구</option>
+                      <option value = "경상북도">경북</option>
+                      <option value = "경상남도">경남</option>
+                    </select>
+                  </div>
+            <button class="button is-link is-rounded" type = "submit">보러가기</button>
+           </form>
+          </div>
+        </div>
+      </section>
+   
+  
+<!-- 
+      <a href="{%url 'review'%}">리뷰보러가기</a>
+   <a href="{%url 'festival_home'%}">축제 보러가기</a>
 
 {% if user.is_authenticated %}
 
@@ -11,6 +58,34 @@
 
 
 {% endif %}
-
-
-<h1>메인페이지 입니당</h1>
+-->
+  </body>
+</html>
+<style>
+    @font-face { font-family: 'Cafe24Ohsquare'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff'); font-weight: normal; font-style: normal; }
+   
+    .container{
+       text-align: center;
+   }
+   .title{
+       font-size: 5rem;
+       font-family: 'Cafe24Ohsquare'
+   }
+   .title:hover{
+       font-size:7rem;
+   }
+   .subtitle{
+        font-size: 2rem;
+        font-family: 'Cafe24Ohsquare'
+   }
+   .subtitle:hover{
+       font-size: 3rem;
+   } 
+   button{
+       background-size: 3rem;
+       font-family: 'Cafe24Ohsquare'
+   }
+   button:hover{
+     background-size: 5rem;
+   }
+</style>

@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>각 축제의 detail 정보 보여주는 페이지</title>
-</head>
-<body>
+{% extends 'base.html'%}
+{% block content %}
     <h3>**detail 보여주는 page</h3>
 
     <a href="{%url 'festival_home'%}">목록으로 돌아가기</a>
@@ -34,5 +28,4 @@
 # - 작성자(fk)
 # - 학교 축제임?(boolean)
 # - 링크 (urlfield) 찾아보세여 -->
-</body>
-</html>
+{% endblock %}

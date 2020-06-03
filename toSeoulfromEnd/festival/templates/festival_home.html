@@ -1,29 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>festival의 home 페이지.</title>
-</head>
-<body>
+{% extends 'base.html'%}
+{% block content %}
     <h3>축제 표시할 main 페이지</h3>
-    <a href="{%url 'main'%}">다시 main 페이지로 돌아가기</a>
-    <!-- 만약 staff 라면 글쓰기 버튼 True -->
-    {% if user.is_staff == True %}
-    <a href="{%url 'writing'%}">staff라면? -> 글쓰기</a>
-    {% endif %}
-    
-    <hr>
+
+    <a href="{%url 'writing'%}"> 글쓰기</a>
+
     <h5>축제 목록</h5>
     {% for festival in festivals %}
     {{festival.title}}
     <button type = 'submit'><a href="{%url 'detail' festival.id%}">더보기</a></button>
-    <!-- staff라면 수정기능 True -->
-    {% if user.is_staff == True%}
+
     <button><a href="{%url 'edit' festival.id%}">수정하기</a></button>
-    {% endif %}
-    
+
     <hr>
     {% endfor %}
-</body>
-</html>
+
+
+{% endblock %}
