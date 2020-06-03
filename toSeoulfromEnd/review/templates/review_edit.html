@@ -1,10 +1,15 @@
 <h1>글 수정하기</h1>
 
-<form action="{%url 'review_update' review.id%}" method="POST">
+<form action="{%url 'review_update' review.id%}" method="POST"  enctype="multipart/form-data">
     {%csrf_token%}
+    
     제목:<input type="text" value="{{review.title}}" name="title">
     <br>
+    날짜:<input type="date" value="{{review.fest_date|date:"Y-m-d"}}" name="fest_date">
+    <br>
     본문:<textarea name="body" id="" cols="30" rows="10">{{review.body}}</textarea>
+    <br>
+    사진:<input type = "file" name = "image" accept = " .jpg, .png , .gif, .jpeg" >
     <br>
     <button type="submit">저장하기</button>
 

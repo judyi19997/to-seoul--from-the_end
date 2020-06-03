@@ -29,6 +29,7 @@ def review_create(request):
     new_review.title = request.POST['title']
     new_review.pub_date = timezone.datetime.now()
     new_review.body = request.POST['body']
+    new_review.fest_date = request.POST['fest_date']
     new_review.save()
     return redirect('review_detail',new_review.id)
 
@@ -41,8 +42,10 @@ def review_update(request,review_id):
     update_review.title = request.POST['title']
     update_review.pub_date = timezone.datetime.now()
     update_review.body = request.POST['body']
+    update_review.fest_date = request.POST['fest_date']
     update_review.save()
     return redirect('review_detail',update_review.id)
+
 
 def review_delete(request,review_id):
     delete_review = get_object_or_404(Review,pk=review_id)
