@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+{% block content %}
+    <h5>**staff가 festival관련 글 작성하는 페이지**</h5>
+    <form action="{% url 'writing'%}" method="POST">
+        {% csrf_token %}
+        {{newForm.as_p}}
+        <input type="submit" value = "저장">
+    </form>
+{% endblock %}

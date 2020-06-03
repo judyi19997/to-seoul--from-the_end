@@ -19,12 +19,13 @@ import review.urls
 from django.conf import settings
 from django.conf.urls.static import static
 import main.views
-# from account import urls
 import account.urls
+import festival.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',main.views.main, name = "main"),
     path('review/',include(review.urls)),
     path('account/',include(account.urls)),
+    path('festival/',include(festival.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

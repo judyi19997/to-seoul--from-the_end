@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block content %}
+    <h3>축제 표시할 main 페이지</h3>
+
+    <a href="{%url 'writing'%}"> 글쓰기</a>
+
+    <h5>축제 목록</h5>
+    {% for festival in festivals %}
+    {{festival.title}}
+    <button type = 'submit'><a href="{%url 'detail' festival.id%}">더보기</a></button>
+
+    <button><a href="{%url 'edit' festival.id%}">수정하기</a></button>
+
+    <hr>
+    {% endfor %}
+
+
+{% endblock %}
