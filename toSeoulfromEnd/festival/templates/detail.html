@@ -19,13 +19,14 @@
     <hr>
     <p>좋아요 : {{detailForm.likes}}</p>
     <p>링크 : <a href="{{detailForm.link}}">이동하기</a></p>
-    <button onclick = "likes_click();">추천하기</button>
+    <!-- <button> <a href="{%url likes detailForm.id %}"> 추천하기</a></button> -->
+    <button>추천하기</button>
 
-    <script>
+    <!-- <script>
         function likes_click(){
             {{detailForm.likes}} = {{detailForm.likes}} + 1;
         }
-    </script>
+    </script> -->
     <!-- 제목(char)
 # - 날짜(date)
 # - 장소(char)

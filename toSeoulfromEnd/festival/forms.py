@@ -6,6 +6,10 @@ class festival_F(forms.ModelForm):
            label='Festival',
            widget=forms.widgets.DateInput(attrs={'type':'date'}),
        )
+    # period_end = forms.DateField(
+    #        label='Festival',
+    #        widget=forms.widgets.DateInput(attrs={'type':'date'}),
+    #    )
 
     class Meta():
         model = festival_M

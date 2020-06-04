@@ -47,6 +47,12 @@ def update(request,festival_id):
     updateForm.locate = request.POST['edit_locate']
     updateForm.period = request.POST['edit_period']
     updateForm.body = request.POST['edit_body']
-    updateForm.pub_date = timezone.datetime.now()
+    updateForm.pub_date = datetime.now()
     updateForm.save()
     return redirect ('/festival/detail/' + str(festival_id))
+
+# def like(request,festival_id):
+#     selectForm = get_object_or_404(festival_M, pk = festival_id)
+#     selectForm.likes +=1
+#     return render(request, 'detail.html')
+

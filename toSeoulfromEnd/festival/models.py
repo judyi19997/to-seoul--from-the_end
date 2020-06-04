@@ -6,6 +6,8 @@ class festival_M(models.Model):
     pub_date = models.DateTimeField(null = True, blank = True)
     locate = models.CharField(max_length = 30,null = True, blank = True)
     period = models.DateField(null = True, blank = True)
+    # period_end = models.DateField(null = True, blank = True)
+
     body = models.TextField(null = True, blank = True)
     image = models.ImageField(upload_to = 'festival/',null = True, blank = True)
     likes = models.IntegerField(null = True, blank = True)
