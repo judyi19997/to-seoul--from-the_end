@@ -6,7 +6,12 @@ class Reviewform(forms.ModelForm):
            label='Festival',
            widget=forms.widgets.DateInput(attrs={'type':'date'}),
        )
+    
+    # image = forms.ImageField(
+    #        label='image',
+    #        widget=forms.widgets.FileInput(attrs={'type':'file'}),
+    #    )
 
     class Meta:
         model = Review
-        fields = ['title','body','image','fest_date']
+        fields = ['title','fest_date','body','image']
