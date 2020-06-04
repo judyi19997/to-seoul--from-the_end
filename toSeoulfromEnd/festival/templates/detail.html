@@ -17,13 +17,21 @@
     <p>축제 이름 : {{detailForm.title}}</p>
     <p>최종 수정 날짜 : {{detailForm.pub_date}}</p>
     <p>축제 기간 : {{detailForm.period}}</p>
-    <!-- <p>이미지 : {{detailForm.image}}</p> -->
+    {%if detailForm.image%}
+    <p>이미지 : <img src="{{detailForm.image.url}}" alt=""></p>
+    {%endif%}
     <hr>
     <p>본문 : {{detailForm.body}}</p>
     <hr>
     <p>좋아요 : {{detailForm.likes}}</p>
-    <p>링크 : {{detailForm.url}}</p>
-    
+    <p>링크 : <a href="{{detailForm.link}}">이동하기</a></p>
+    <button onclick = "likes_click();">추천하기</button>
+
+    <script>
+        function likes_click(){
+            {{detailForm.likes}} = {{detailForm.likes}} + 1;
+        }
+    </script>
     <!-- 제목(char)
 # - 날짜(date)
 # - 장소(char)

@@ -7,9 +7,9 @@
 </head>
 <body>
     <h5>**staff가 festival관련 글 작성하는 페이지**</h5>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{newForm.as_p}}
+        {{newForm.as_p}} 
         <input type="submit" value = "저장">
     </form>
 </body>

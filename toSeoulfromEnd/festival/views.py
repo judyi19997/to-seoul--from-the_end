@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .forms import festival_F
 from .models import festival_M
-from django.utils import timezone
+from django.utils.timezone import datetime
 
 # Create your views here.
 
@@ -14,9 +14,10 @@ def writing(request):
         inputForm = festival_F(request.POST,request.FILES)
         if inputForm.is_valid():
             tempsave = inputForm.save(commit = False)
-            tempsave.pub_date = timezone.datetime.now()
+            tempsave.pub_date = datetime.now()
             tempsave.save()
             return redirect('festival_home')
+        return redirect('festival_home')
 
     else:
         newForm = festival_F()

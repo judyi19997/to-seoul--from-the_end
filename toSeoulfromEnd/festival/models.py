@@ -13,7 +13,7 @@ class festival_M(models.Model):
 # - 학교 축제임?(boolean)
 # - 링크 (urlfield) 찾아보세여
     title = models.CharField(max_length = 20,null = True, blank = True)
-    pub_date = models.DateField(null = True, blank = True)
+    pub_date = models.DateTimeField(null = True, blank = True)
     locate = models.CharField(max_length = 30,null = True, blank = True)
     period = models.DateField(null = True, blank = True)
     body = models.TextField(null = True, blank = True)

@@ -17,6 +17,8 @@
     <h5>축제 목록</h5>
     {% for festival in festivals %}
     {{festival.title}}
+    <br>
+    {{festival.pub_date}}
     <button type = 'submit'><a href="{%url 'detail' festival.id%}">더보기</a></button>
     <!-- staff라면 수정기능 True -->
     {% if user.is_staff == True%}
