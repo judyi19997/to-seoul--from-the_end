@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>staff writing page</title>
-</head>
-<body>
+{% extends 'base.html'%}
+{% block content %}
     <h5>**staff가 festival관련 글 수정하는 페이지**</h5>
     <form action="{%url 'update' editForm.id%}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -21,5 +15,5 @@
         <input type="submit" value = "저장">
         <button ><a href="{%url 'festival_home'%}">돌아가기</a></button>
     </form>
-</body>
-</html>
+
+{% endblock %}

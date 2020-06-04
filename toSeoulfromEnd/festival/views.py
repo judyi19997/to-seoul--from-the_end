@@ -6,12 +6,17 @@ from django.utils.timezone import datetime
 # Create your views here.
 
 def festival_home(request):
-    festivals = festival_M.objects.all()
+    try:
+       area = request.GET['locate']
+       festivals = festival_M.objects.filter( locate = area)
+    except:
+        festivals = festival_M.objects.all()
     return render (request, 'festival_home.html', {'festivals': festivals})
 
 def writing(request):
     if request.method == 'POST':
         inputForm = festival_F(request.POST,request.FILES)
+        print("여기들어옴?", inputForm)
         if inputForm.is_valid():
             tempsave = inputForm.save(commit = False)
             tempsave.pub_date = datetime.now()
@@ -21,7 +26,7 @@ def writing(request):
 
     else:
         newForm = festival_F()
-        return render (request,'writing.html', {'newForm' : newForm})
+        return render(request,'writing.html', {'newForm' : newForm})
 
 def detail(request, festival_id):
     detailForm = get_object_or_404(festival_M, pk = festival_id) #db에서 해당 객체 담기.

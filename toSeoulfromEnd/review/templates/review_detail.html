@@ -1,3 +1,6 @@
+{% extends 'base.html'%}
+{% block content %}
+
 <h1> Detail Page </h1>
 
 <h3>제목 : {{review.title}}</h3>
@@ -20,3 +23,5 @@
 <a href="{%url 'review'%}">메인 홈</a>
 <a href="{%url 'review_edit' review.id%}">수정하기</a>
 <a href="{%url 'review_delete' review.id%}">삭제하기</a>
+
+{% endblock %}

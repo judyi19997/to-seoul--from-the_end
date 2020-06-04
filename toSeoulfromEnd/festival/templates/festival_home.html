@@ -1,31 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>festival의 home 페이지.</title>
-</head>
-<body>
+{% extends 'base.html'%}
+{% block content %}
     <h3>축제 표시할 main 페이지</h3>
-    <a href="{%url 'main'%}">다시 main 페이지로 돌아가기</a>
-    <!-- 만약 staff 라면 글쓰기 버튼 True -->
-    {% if user.is_staff == True %}
-    <a href="{%url 'writing'%}">staff라면? -> 글쓰기</a>
-    {% endif %}
-    
-    <hr>
+
+    <a href="{%url 'writing'%}"> 글쓰기</a>
+
     <h5>축제 목록</h5>
     {% for festival in festivals %}
-    {{festival.title}}
-    <br>
-    {{festival.pub_date}}
-    <button type = 'submit'><a href="{%url 'detail' festival.id%}">더보기</a></button>
-    <!-- staff라면 수정기능 True -->
-    {% if user.is_staff == True%}
-    <button><a href="{%url 'edit' festival.id%}">수정하기</a></button>
-    {% endif %}
-    
-    <hr>
-    {% endfor %}
-</body>
-</html>
+    <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+              {% if festival.image %}
+              <img src="{{ festival.image.url }}" alt="Image">
+              {% endif %}
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>{{festival.title}}</strong> <small>{{festival.period}}</small> <small>31m</small>
+                <br>
+               {{festival.link}}
+               <button type = 'submit'><a href="{%url 'detail' festival.id%}">더보기</a></button>
+
+               <button><a href="{%url 'edit' festival.id%}">수정하기</a></button>
+              </p>
+            </div>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" aria-label="reply">
+                  <span class="icon is-small">
+                    <i class="fas fa-reply" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <a class="level-item" aria-label="retweet">
+                  <span class="icon is-small">
+                    <i class="fas fa-retweet" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <a class="level-item" aria-label="like">
+                  <span class="icon is-small">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+{% endblock %}
