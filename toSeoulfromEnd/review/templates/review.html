@@ -1,11 +1,11 @@
 {% extends 'base.html'%}
 {% block content %}
 <h1> 후기 작성 </h1>
+<a href="{%url 'main'%}">메인페이지로</a>
 
 <br>
 <a href="{%url 'review_new'%}">새 글 작성하기</a>
 
-    더보기
 {% for review in reviews %}
 <div class="box">
 <a href="{% url 'review_detail' review.id%}">
@@ -20,11 +20,10 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <strong>{{review.title}}</strong> <small>{{review.fest_date}}</small> <sm
+            <strong>{{review.title}}</strong> <small>{{review.pub_date}}</small>
             <br>
            {{review.summary}}
-           <button type = 'submit'><a href="{%url 'review_delete' review.id%}">삭제</a></button>
-           <button><a href="{%url 'review_edit' review.id%}">수정하기</a></button>
+
           </p>
         </div>
         <nav class="level is-mobile">
